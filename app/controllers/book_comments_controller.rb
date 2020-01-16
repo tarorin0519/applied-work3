@@ -10,9 +10,10 @@ def create
 end
 
 def destroy
-	@book_comment = BookComment.find(params[:id])
-	@book_comment.destroy
-	redirect_to book_path
+
+	comment = BookComment.find(params[:book_id])
+	comment.destroy
+	redirect_to book_path(comment.book)
 end
 
 private
